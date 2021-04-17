@@ -9,7 +9,6 @@ public class TasksValidator {
     public static List<String> validate(Tasks m) {
         List<String> errors = new ArrayList<String>();
 
-
         String content_error = validateContent(m.getContent());
         if(!content_error.equals("")) {
             errors.add(content_error);

@@ -6,11 +6,12 @@
         <c:forEach var="error" items="${errors}">
             ・<c:out value="${error}" /><br />
         </c:forEach>
+
     </div>
 </c:if>
-<label for="title">タスク</label>
-<br />
-<input type="text" name="content" value="${tasks.content}"/>
+<label>タスク<br />
+<input type="text"  name="content" value="${tasks.content}"/>
+</label>
 <br /><br />
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">投稿</button>

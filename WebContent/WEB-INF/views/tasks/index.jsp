@@ -2,22 +2,23 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:import url="../layout/app.jsp">
     <c:param name="content">
-    <c:if test="${flush != null}">
+      <c:if test="${flush != null}">
             <div id="flush_success">
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
         <h2>タスク一覧</h2>
         <ul>
-            <c:forEach var="message" items="${tasks}">
+            <c:forEach var="tasks" items="${tasks}">
                 <li>
-                    <a href="${pageContext.request.contextPath}/show?id=${message.id}">
-                        <c:out value="${message.id}" />
+                    <a href="${pageContext.request.contextPath}/show?id=${tasks.id}">
+                        <c:out value="${tasks.id}" />
                     </a>
+                    ： &gt; <c:out value="${tasks.content}" />
                 </li>
             </c:forEach>
         </ul>
-        <div id="pagination">
+<div id="pagination">
             （全 ${tasks_count} 件）<br />
             <c:forEach var="i" begin="1" end="${((tasks_count - 1) / 15) + 1}" step="1">
                 <c:choose>
@@ -30,7 +31,7 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="${pageContext.request.contextPath}/new">新規タスク</a></p>
+        <p><a href="${pageContext.request.contextPath}/new">新規タスクの投稿</a></p>
 
     </c:param>
 </c:import>
